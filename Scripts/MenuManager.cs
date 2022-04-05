@@ -8,6 +8,9 @@ public class MenuManager : MonoBehaviour
 {
     //MenuObjects
     public GameObject InGameMenu;
+    public GameObject MainMenuObject;
+    public GameObject MapSelectObject;
+    public GameObject Loading;
     //bools
     private bool inMain;
 
@@ -32,7 +35,18 @@ public class MenuManager : MonoBehaviour
     //load level1
     public void LoadLvl1()
     {
+        Loading.SetActive(true);
         SceneManager.LoadScene(1);
+    }
+    public void LoadLvl2()
+    {
+        Loading.SetActive(true);
+        SceneManager.LoadScene(2);
+    }
+    public void LoadLVL3()
+    {
+        Loading.SetActive(true);
+        SceneManager.LoadScene(3);
     }
     public void ShowInGameMenu()
     {
@@ -47,5 +61,10 @@ public class MenuManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    public void MapSelect()
+    {
+        MapSelectObject.SetActive(true);
+        MainMenuObject.SetActive(false);
     }
 }
