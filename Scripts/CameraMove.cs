@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMove : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CameraMove : MonoBehaviour
     private Vector3 average;
     public Vector3 offset;
     public Vector3 offset2;
+    public Vector3 offset3;
 
     public void Update() 
     {
@@ -42,7 +44,14 @@ public class CameraMove : MonoBehaviour
             //average of the hight
             averageY = player1.position.y + player2.position.y;
             average.z = -averageY / 2;
-            camera.position = average - offset2 + offset;
+            if(SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                camera.position = average - offset2 + offset + offset3;
+            }
+            else
+            {
+                camera.position = average - offset2 + offset;
+            }
         }
     }
 }

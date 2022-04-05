@@ -99,9 +99,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            respawnPointP1 = player1.transform.position;
+            respawnPointP2 = player2.transform.position;
+        }
         Debug.Log(Screen.width);
         Debug.Log(Screen.height);
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if(SceneManager.GetActiveScene().buildIndex == 0 && Screen.currentResolution.width == 227 && Screen.currentResolution.height == 128)
         {
             Screen.fullScreen = false;
             Invoke("SetToFull", 0.1f);
